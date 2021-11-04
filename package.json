@@ -31,12 +31,17 @@
     "check-dependencies:update": "npm-check --update",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
+    "start": "node dist/index.js",
     "test": "mocha -r ts-node/register 'tests/**/*.test.ts' --timeout 30000 --require mocha-steps",
     "test:coverage": "nyc --reporter=html --reporter=text npm run test",
     "test:coverage:lcov": "nyc --reporter=lcovonly npm run test"
   },
   "dependencies": {
+    "got": "^11.8.2"
+  },
+  "devDependencies": {
     "eslint": "^8.1.0",
+    "ncp": "^2.0.0",
     "npm-check": "^5.9.2",
     "rimraf": "^3.0.2",
     "ts-node": "^10.4.0",
