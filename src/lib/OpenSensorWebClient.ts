@@ -1,7 +1,8 @@
 import got from 'got';
 import {normalizeTimestampHTTPFormat} from "./utils/normalizer";
 import {
-    InterpolatorType
+    InterpolatorType,
+    OpenSensorWebResult
 } from '../types';
 
 export class OpenSensorWebClient {
@@ -24,19 +25,19 @@ export class OpenSensorWebClient {
         return this.sensorId;
     }
 
-    async call_api(startDatetime: string, endDatetime: string): Promise<any> {
+    async callApi(startDatetime: string, endDatetime: string): Promise<OpenSensorWebResult[]> {
         const full_url = this.apiUrl +
             '&start=' + normalizeTimestampHTTPFormat(startDatetime) +
             '&end=' + normalizeTimestampHTTPFormat(endDatetime);
 
-        return (await got(full_url)).body
+        return <OpenSensorWebResult[]><unknown> (await got(full_url)).body
     }
 
-    async fetch_data(deltaHours?: number): Promise<any> {
+    async fetchData(deltaHours?: number): Promise<OpenSensorWebResult[]> {
         if (deltaHours === undefined) deltaHours = 24;
         const now = new Date();
         const deltaHoursAgo = new Date(now.getTime() - deltaHours * 3600 * 1000);
 
-        return this.call_api(deltaHoursAgo.toISOString(), now.toISOString());
+        return this.callApi(deltaHoursAgo.toISOString(), now.toISOString());
     }
 }
