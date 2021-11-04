@@ -1,0 +1,9 @@
+{
+    "auth": {
+        "username": "TO BE DEFINED",
+        "password": "TO BE DEFINED"
+    },
+    "host": "TO BE DEFINED",
+    "port": 3306,
+    "database": "TO BE DEFINED"
+}

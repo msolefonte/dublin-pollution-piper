@@ -1,8 +1,20 @@
-// import {OpenSensorWebClient} from "./lib/OpenSensorWebClient";
+import {MySQLClient} from "./lib/MySQLClient";
+import {OpenSensorWebClient} from "./lib/OpenSensorWebClient";
+import {Piper} from "./lib/Piper";
 import {TomTomTrafficClient} from "./lib/TomTomTrafficClient";
+import areas from "./config/areas.json";
+import tomTom from "./config/tomtom.json";
 
-// const oswc = new OpenSensorWebClient('STA.IE.IE0098A', 'SPO.IE.IE0098ASample1_8-NO2-PT1H');
-const oswc = new TomTomTrafficClient('FQXYF9UX1peapMlODDER3MQSGJbv1Yx1', '53.346019,-6.293357', 22);
-oswc.fetchData().then((data) => {
-    console.log(data);
-});
+function main() {
+    const mySQLClient = new MySQLClient();
+
+    for (const area of areas.areas) {
+        const sensorClient = new OpenSensorWebClient(area.sensor.deviceId, area.sensor.sensorId);
+        const trafficClient = new TomTomTrafficClient(tomTom.apiKey, area.coordinates, 22);
+
+        const piper = new Piper(area.id, mySQLClient, sensorClient, trafficClient);
+        piper.pipe().then(() => {});
+    }
+}
+
+main();
