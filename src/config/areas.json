@@ -1,0 +1,52 @@
+{
+  "areas": [
+    {
+      "id": 1,
+      "sensor": {
+        "sensorId": "SPO.IE.IE001APSample2_8-NO2-PT1H",
+        "deviceId": "STA.IE.IE001AP"
+      },
+      "coordinates": "53.346019,-6.293357"
+    },
+    {
+      "id": 2,
+      "sensor": {
+        "sensorId": "SPO.IE.IE005APSample2_8-NO2-PT1H",
+        "deviceId": "STA.IE.IE005AP"
+      },
+      "coordinates": "53.346019,-6.293357"
+    },
+    {
+      "id": 3,
+      "sensor": {
+        "sensorId": "SPO.IE.IE0098ASample1_8-NO2-PT1H",
+        "deviceId": "STA.IE.IE0098A"
+      },
+      "coordinates": "53.346019,-6.293357"
+    },
+    {
+      "id": 4,
+      "sensor": {
+        "sensorId": "SPO.IE.IE0028ASample1_8-NO2-PT1H",
+        "deviceId": "STA.IE.IE0028A"
+      },
+      "coordinates": "53.346019,-6.293357"
+    },
+    {
+      "id": 5,
+      "sensor": {
+        "sensorId": "SPO.IE.IE0105ASample1_8-NO2-PT1H",
+        "deviceId": "STA.IE.IE0105A"
+      },
+      "coordinates": "53.346019,-6.293357"
+    },
+    {
+      "id": 6,
+      "sensor": {
+        "sensorId": "SPO.IE.IE004APSample1_8-NO2-PT1H",
+        "deviceId": "STA.IE.IE004AP"
+      },
+      "coordinates": "53.346019,-6.293357"
+    }
+  ]
+}

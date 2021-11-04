@@ -7,8 +7,18 @@ export interface FlowData {
     currentTravelTime: number,
     freeFlowTravelTime: number,
     confidence: number,
-    roadClosure:number,
+    roadClosure: boolean,
     timestamp: string
+}
+
+export interface MySQLConfig {
+    auth: {
+        username: string,
+        password: string
+    },
+    host: string,
+    port: number,
+    database: string
 }
 
 export interface OpenSensorWebResult {
@@ -24,7 +34,7 @@ export interface TomTomTrafficResult {
         currentTravelTime: number,
         freeFlowTravelTime: number,
         confidence: number,
-        roadClosure:number,
+        roadClosure: boolean,
         coordinates: {
             coordinate: {
                 latitude: number,
