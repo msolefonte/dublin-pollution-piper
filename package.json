@@ -7,9 +7,9 @@
   },
   "version": "1.0.0",
   "license": "GPL-3.0",
-  "description": "TBD",
+  "description": "Open Source application that fetches Nitrogen Dioxide pollution from multiple sensors deployed around Dublin as well as real-time data about traffic using TomTom's API. Results are merged and stored into a MySQL database.",
   "keywords": [
-    "TBD"
+    "dublin", "pollution", "nitrogen-dioxide", "smart-cities", "traffic", "typescript"
   ],
   "bugs": {
     "url": "https://github.com/msolefonte/dublin-no2-pollution/issues"
