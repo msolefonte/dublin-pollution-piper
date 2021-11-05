@@ -35,9 +35,12 @@ Once you already have a valid `API_KEY`, you have to modify the file [src/config
 
 Areas can be configured manually in the [src/config/areas.json](src/config/areas.json) file. This document includes the
 list of areas covered by the application, including both the coordinates used for the traffic service and the sensor
-identification. As long as sensors are available (which should be at least in Europe thanks to the 
-[European Environmental Agency](https://www.eea.europa.eu/themes/air)!), this code can be exported to anywhere in the 
-world. Feel free to do so.
+identification. 
+
+As long as sensors are available (which should be at least in Europe thanks to the 
+[European Environmental Agency](https://www.eea.europa.eu/themes/air)), this code can be exported to anywhere in the 
+world. You can also experiment with other kind of sensors that gather other pollutants in air like O3, CO, SO3, as they
+use very similar APIs. Feel free to do so!
 
 ## Scripts
 
