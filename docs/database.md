@@ -63,4 +63,19 @@ create table traffic
 
 ## Configuration
 
-TBD
+In order to set the database configuration, refer to the file [src/config/database.json](../src/config/database.json)
+(before building) or [dist/config/database.json](../dist/config/database.json) (if the code has already been built).
+
+The format of the file has to be similar to the following:
+
+```json
+{
+    "auth": {
+        "username": "user_1",
+        "password": "pass_123"
+    },
+    "host": "my.hostname.com",
+    "port": 3306,
+    "database": "my_database"
+}
+```
