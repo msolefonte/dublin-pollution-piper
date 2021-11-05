@@ -1,4 +1,14 @@
-export type InterpolatorType = "LINEAR";
+export interface Area {
+      id: number,
+      description: string,
+      sensor: {
+        sensorId: string,
+        deviceId: string
+      },
+      coordinates: string
+}
+
+export type InterpolatorType = 'LINEAR';
 
 export interface FlowData {
     frc: string
