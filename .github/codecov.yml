@@ -3,11 +3,11 @@ codecov:
   require_ci_to_pass: true
 coverage:
   round: down
-  range: 60..100
+  range: 90..100
   status:
     project:
       default:
-        target: 60%
+        target: 90%
         threshold: 0%
         branches:
           - master
