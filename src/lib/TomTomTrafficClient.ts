@@ -2,7 +2,7 @@ import got from 'got';
 import {normalizeTimestampDBFormat} from "./utils/normalizer";
 import {
     FlowData,
-    TomTomTrafficResult
+    TomTomTrafficData
 } from '../types';
 
 export class TomTomTrafficClient {
@@ -20,8 +20,8 @@ export class TomTomTrafficClient {
                        '&point=' + coordinates
     }
 
-    async callApi(): Promise<TomTomTrafficResult> {
-        return <TomTomTrafficResult><unknown> JSON.parse((await got(this.apiUrl)).body)
+    async callApi(): Promise<TomTomTrafficData> {
+        return <TomTomTrafficData><unknown> JSON.parse((await got(this.apiUrl)).body)
     }
 
     async fetchData(): Promise<FlowData> {

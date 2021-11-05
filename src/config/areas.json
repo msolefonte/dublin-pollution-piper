@@ -2,51 +2,57 @@
   "areas": [
     {
       "id": 1,
+      "description": "Dublin 12. South Canal. Davitt Road",
       "sensor": {
         "sensorId": "SPO.IE.IE001APSample2_8-NO2-PT1H",
         "deviceId": "STA.IE.IE001AP"
       },
-      "coordinates": "53.346019,-6.293357"
+      "coordinates": "53.336427,-6.309068"
     },
     {
       "id": 2,
+      "description": "Dublin 8. The Liberties. Grand Canal Place",
       "sensor": {
         "sensorId": "SPO.IE.IE005APSample2_8-NO2-PT1H",
         "deviceId": "STA.IE.IE005AP"
       },
-      "coordinates": "53.346019,-6.293357"
+      "coordinates": "53.345821,-6.294773"
     },
     {
       "id": 3,
+      "description": "Dublin 8. Dublin Heuston. Saint John's Road West",
       "sensor": {
         "sensorId": "SPO.IE.IE0098ASample1_8-NO2-PT1H",
         "deviceId": "STA.IE.IE0098A"
       },
-      "coordinates": "53.346019,-6.293357"
+      "coordinates": "53.341776,-6.287834"
     },
     {
       "id": 4,
+      "description": "Dublin 7. Technological University Dublin. East Quad",
       "sensor": {
         "sensorId": "SPO.IE.IE0028ASample1_8-NO2-PT1H",
         "deviceId": "STA.IE.IE0028A"
       },
-      "coordinates": "53.346019,-6.293357"
+      "coordinates": "53.353772,-6.273027"
     },
     {
       "id": 5,
+      "description": "Dublin 1. North City. Abbey Street Upper",
       "sensor": {
         "sensorId": "SPO.IE.IE0105ASample1_8-NO2-PT1H",
         "deviceId": "STA.IE.IE0105A"
       },
-      "coordinates": "53.346019,-6.293357"
+      "coordinates": "53.347270,-6.266950"
     },
     {
       "id": 6,
+      "description": "Dublin 4. Port. Pigeon House Road",
       "sensor": {
         "sensorId": "SPO.IE.IE004APSample1_8-NO2-PT1H",
         "deviceId": "STA.IE.IE004AP"
       },
-      "coordinates": "53.346019,-6.293357"
+      "coordinates": "53.341961,-6.214061"
     }
   ]
 }

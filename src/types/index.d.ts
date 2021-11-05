@@ -21,12 +21,12 @@ export interface MySQLConfig {
     database: string
 }
 
-export interface OpenSensorWebResult {
+export interface OpenSensorWebData {
     begin: string,
     v: number
 }
 
-export interface TomTomTrafficResult {
+export interface TomTomTrafficData {
     flowSegmentData: {
         frc: string
         currentSpeed: number,

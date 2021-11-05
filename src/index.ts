@@ -3,18 +3,21 @@ import {OpenSensorWebClient} from "./lib/OpenSensorWebClient";
 import {Piper} from "./lib/Piper";
 import {TomTomTrafficClient} from "./lib/TomTomTrafficClient";
 import areas from "./config/areas.json";
-import tomTom from "./config/tomtom.json";
+import databaseConfig from "./config/database.json";
+import tomTomConfig from "./config/tomtom.json";
 
-function main() {
-    const mySQLClient = new MySQLClient();
+async function main() {
+    const mySQLClient = new MySQLClient(databaseConfig);
 
     for (const area of areas.areas) {
         const sensorClient = new OpenSensorWebClient(area.sensor.deviceId, area.sensor.sensorId);
-        const trafficClient = new TomTomTrafficClient(tomTom.apiKey, area.coordinates, 22);
+        const trafficClient = new TomTomTrafficClient(tomTomConfig.apiKey, area.coordinates, 22);
 
         const piper = new Piper(area.id, mySQLClient, sensorClient, trafficClient);
-        piper.pipe().then(() => {});
+        await piper.pipe();
     }
 }
 
-main();
+main().then(() => {
+    console.log('Data piped');
+});
