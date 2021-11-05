@@ -39,8 +39,8 @@ identification.
 
 As long as sensors are available (which should be at least in Europe thanks to the 
 [European Environmental Agency](https://www.eea.europa.eu/themes/air)), this code can be exported to anywhere in the 
-world. You can also experiment with other kind of sensors that gather other pollutants in air like O3, CO, SO3, as they
-use very similar APIs. Feel free to do so!
+world. You can also experiment with other kind of sensors that gather other pollutants in air like O<sub>3/sub>, CO, 
+SO<sub>3/sub>, as they use very similar APIs. Feel free to do so!
 
 ## Scripts
 
