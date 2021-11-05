@@ -26,7 +26,6 @@ export class Piper {
     }
 
     private async subsetSensorData(sensorData: OpenSensorWebData[]) {
-        console.log('ssd: ' + sensorData.length);
         let lastTimestamp;
 
         try {
@@ -34,8 +33,6 @@ export class Piper {
         } catch (e) {
             return sensorData
         }
-
-        console.log('ssd: ' + lastTimestamp);
 
         let i = 0;
         while (i < sensorData.length) {
