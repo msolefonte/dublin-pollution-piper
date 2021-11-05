@@ -1,5 +1,5 @@
 [![NodeJS CI Actions Status](https://img.shields.io/github/workflow/status/msolefonte/dublin-pollution-piper/nodejs-ci)](https://github.com/msolefonte/dublin-pollution-piper/actions)
-[![Codecov](https://codecov.io/gh/msolefonte/dublin-pollution-piper/branch/master/graph/badge.svg)](https://codecov.io/gh/msolefonte/dublin-pollution-piper)
+[![Codecov](https://codecov.io/gh/msolefonte/dublin-pollution-piper/branch/main/graph/badge.svg?token=178AK2GXQL)](https://codecov.io/gh/msolefonte/dublin-pollution-piper)
 [![Maintainability](https://api.codeclimate.com/v1/badges/8e48291929dd5190e908/maintainability)](https://codeclimate.com/github/msolefonte/dublin-pollution-piper/maintainability)
 [![License](https://img.shields.io/github/license/msolefonte/dublin-pollution-piper)](https://github.com/msolefonte/dublin-pollution-piper/blob/master/LICENSE)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/msolefonte/dublin-pollution-piper/blob/master/CONTRIBUTING.md)

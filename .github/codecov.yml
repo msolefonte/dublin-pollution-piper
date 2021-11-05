@@ -10,7 +10,7 @@ coverage:
         target: 90%
         threshold: 0%
         branches:
-          - master
+          - main
           - dev
         if_ci_failed: error
 comment:
