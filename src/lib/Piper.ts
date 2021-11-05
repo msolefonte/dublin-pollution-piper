@@ -3,7 +3,7 @@ import path from "path"
 import {MySQLClient} from "./MySQLClient";
 import {OpenSensorWebClient} from "./OpenSensorWebClient";
 import {TomTomTrafficClient} from "./TomTomTrafficClient";
-import {OpenSensorWebResult} from "../types";
+import {OpenSensorWebData} from "../types";
 
 export class Piper {
     private readonly areaId: number;
@@ -29,7 +29,7 @@ export class Piper {
         await fs.promises.writeFile(this.timestampFilePath, timestamp, 'utf8');
     }
 
-    private async subsetSensorData(sensorData: OpenSensorWebResult[]) {
+    private async subsetSensorData(sensorData: OpenSensorWebData[]) {
         let lastTimestamp;
 
         try {
@@ -50,23 +50,31 @@ export class Piper {
     }
 
     async pipeSensorData(): Promise<void> {
-        const sensorData = await this.subsetSensorData(await this.openSensorClient.fetchData(168));
+        try {
+            const sensorData = await this.subsetSensorData(await this.openSensorClient.fetchData(168));
 
-        if (sensorData.length > 0) {
-            this.databaseClient.updateSensorData(this.areaId, sensorData);
-            const newTimestamp = sensorData[sensorData.length - 1].begin;
+            if (sensorData.length > 0) {
+                await this.databaseClient.updateSensorData(this.areaId, sensorData);
+                const newTimestamp = sensorData[sensorData.length - 1].begin;
 
-            this.updateTimestamp(newTimestamp);
+                this.updateTimestamp(newTimestamp);
+            }
+        } catch (error: any) {
+            console.error('An error happened when piping sensor data (area ' + this.areaId + '): "' + error + '"');
         }
     }
 
     async pipeTrafficData(): Promise<void> {
-        const trafficData = this.openDataClient.fetchData();
-        this.databaseClient.updateTrafficData(this.areaId, trafficData);
+        try {
+            const trafficData = await this.openDataClient.fetchData();
+            await this.databaseClient.updateTrafficData(this.areaId, trafficData);
+        } catch (error: any) {
+            console.error('An error happened when piping traffic data (area ' + this.areaId + '): "' + error + '"');
+        }
     }
 
     async pipe(): Promise<void> {
-        this.pipeSensorData();
-        this.pipeTrafficData()
+        await this.pipeSensorData();
+        await this.pipeTrafficData();
     }
 }
