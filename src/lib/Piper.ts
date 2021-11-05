@@ -26,6 +26,7 @@ export class Piper {
     }
 
     private async subsetSensorData(sensorData: OpenSensorWebData[]) {
+        console.log('ssd: ' + sensorData.length);
         let lastTimestamp;
 
         try {
@@ -34,15 +35,16 @@ export class Piper {
             return sensorData
         }
 
+        console.log('ssd: ' + lastTimestamp);
+
         let i = 0;
         while (i < sensorData.length) {
             const entryTimestamp = new Date(sensorData[i].begin);
-            i += 1;
-
             if (entryTimestamp > lastTimestamp) break;
+            i += 1;
         }
 
-        return sensorData.slice(i - 1);
+        return sensorData.slice(i);
     }
 
     async updateTimestamp(timestamp: string): Promise<void> {

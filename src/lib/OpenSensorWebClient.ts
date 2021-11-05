@@ -28,6 +28,7 @@ export class OpenSensorWebClient {
 
         try {
             console.log(full_url);
+            console.log(JSON.parse((await got(full_url)).body).length);
             return <OpenSensorWebData[]><unknown>JSON.parse((await got(full_url)).body)
         } catch (error: unknown) {
             console.error('An error happened when getting sensor data (deviceId ' + this.deviceId + '): "' + error + '"');
