@@ -9,7 +9,12 @@
   "license": "GPL-3.0",
   "description": "Open Source application that fetches Nitrogen Dioxide pollution from multiple sensors deployed around Dublin as well as real-time data about traffic using TomTom's API. Results are merged and stored into a MySQL database.",
   "keywords": [
-    "dublin", "pollution", "nitrogen-dioxide", "smart-cities", "traffic", "typescript"
+    "dublin",
+    "pollution",
+    "nitrogen-dioxide",
+    "smart-cities",
+    "traffic",
+    "typescript"
   ],
   "bugs": {
     "url": "https://github.com/msolefonte/dublin-no2-pollution/issues"
@@ -33,7 +38,8 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "start": "node dist/index.js",
     "test": "mocha -r ts-node/register 'tests/**/*.test.ts' --timeout 30000 --require mocha-steps",
-    "test:coverage": "nyc --reporter=html --reporter=text npm run test"
+    "test:coverage": "nyc --reporter=html --reporter=text npm run test",
+    "test:coverage:lcov": "nyc --reporter=lcov npm run test"
   },
   "dependencies": {
     "got": "^11.8.2",
@@ -43,6 +49,7 @@
     "@types/chai": "^4.2.22",
     "@types/mocha": "^9.0.0",
     "@types/mysql": "^2.15.19",
+    "@types/node": "^16.11.6",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "chai": "^4.3.4",

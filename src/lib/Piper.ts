@@ -6,6 +6,12 @@ import fs from 'fs'
 import path from 'path'
 
 export class Piper {
+    private readonly areaId: number;
+    private readonly databaseClient: MySQLClient;
+    private readonly openSensorClient: OpenSensorWebClient;
+    private readonly openDataClient: TomTomTrafficClient;
+    private readonly timestampFilePath: string;
+
     constructor(areaId: number, databaseClient: MySQLClient, openSensorClient: OpenSensorWebClient, openDataClient: TomTomTrafficClient) {
         this.areaId = areaId;
         this.databaseClient = databaseClient;
@@ -13,13 +19,6 @@ export class Piper {
         this.openDataClient = openDataClient;
         this.timestampFilePath =  path.resolve(__dirname, '../../tmp/' + areaId + '.tms');
     }
-private readonly areaId: number;
-    private readonly databaseClient: MySQLClient;
-    private readonly openSensorClient: OpenSensorWebClient;
-    private readonly openDataClient: TomTomTrafficClient;
-    private readonly timestampFilePath: string;
-
-    
 
     private async getLastTimestamp(): Promise<Date> {
         const timestamp: string = await fs.promises.readFile(this.timestampFilePath, 'utf8');
@@ -61,7 +60,7 @@ private readonly areaId: number;
                 this.updateTimestamp(newTimestamp);
             }
         } catch (error: unknown) {
-            // console.error('An error happened when piping sensor data (area ' + this.areaId + '): "' + error + '"');
+            console.error('An error happened when piping sensor data (area ' + this.areaId + '): "' + error + '"');
         }
     }
 
@@ -70,7 +69,7 @@ private readonly areaId: number;
             const trafficData = await this.openDataClient.fetchData();
             await this.databaseClient.updateTrafficData(this.areaId, trafficData);
         } catch (error: unknown) {
-            // console.error('An error happened when piping traffic data (area ' + this.areaId + '): "' + error + '"');
+            console.error('An error happened when piping traffic data (area ' + this.areaId + '): "' + error + '"');
         }
     }
 

@@ -10,6 +10,16 @@ import {step} from 'mocha-steps';
 import tomTomConfig from '../src/config/tomtom.json';
 
 describe('Testing Piper', () => {
+    if (process.env.MODE === 'CI/CD') {
+        tomTomConfig.apiKey = <string> process.env.TOM_TOM_API_KEY;
+
+        databaseConfig.host = <string> process.env.DATABASE_HOST;
+        databaseConfig.port = parseInt(<string> process.env.DATABASE_PORT);
+        databaseConfig.auth.username = <string> process.env.DATABASE_USERNAME;
+        databaseConfig.auth.password = <string> process.env.DATABASE_PASSWORD;
+        databaseConfig.database = <string> process.env.DATABASE_DATABASE;
+    }
+
     let mySQLClient: MySQLClient;
     const areas: Area[] = areasConfig.areas;
 
