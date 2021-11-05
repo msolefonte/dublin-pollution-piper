@@ -10,6 +10,10 @@ import {step} from 'mocha-steps';
 import tomTomConfig from '../src/config/tomtom.json';
 
 describe('Testing Piper', () => {
+
+    console.log('MODE: ' + process.env.MODE);
+    console.log('PORT: ' + process.env.DATABASE_PORT);
+    console.log('DB: ' + process.env.DATABASE_DATABASE);
     if (process.env.MODE === 'CI/CD') {
         tomTomConfig.apiKey = <string> process.env.TOM_TOM_API_KEY;
 

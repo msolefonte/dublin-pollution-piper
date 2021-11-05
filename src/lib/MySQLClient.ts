@@ -8,8 +8,6 @@ export class MySQLClient {
     }
 private readonly config: MySQLConfig;
 
-    
-
     private async connectToDatabase(): Promise<Connection> {
         return mysql.createConnection({
             host: this.config.host,
@@ -23,7 +21,7 @@ private readonly config: MySQLConfig;
         });
     }
 
-    private async insertSensorData(connection: Connection, areaId: number, entry: OpenSensorWebData) {
+    private async insertSensorData(connection: Connection, areaId: number, entry: OpenSensorWebData): Promise<void> {
         const post  = {area_id: areaId, timestamp: normalizeTimestampDBFormat(entry.begin), no2_level: entry.v};
         try {
             await connection.query('INSERT INTO no2_emissions SET ?', post);
@@ -36,7 +34,7 @@ private readonly config: MySQLConfig;
         }
     }
 
-    async updateSensorData(areaId: number, sensorData: OpenSensorWebData[]) {
+    async updateSensorData(areaId: number, sensorData: OpenSensorWebData[]): Promise<void> {
         const connection = await this.connectToDatabase();
 
         for (const entry of sensorData) {
@@ -46,7 +44,7 @@ private readonly config: MySQLConfig;
         await connection.end();
     }
 
-    async updateTrafficData(areaId: number, trafficData: FlowData) {
+    async updateTrafficData(areaId: number, trafficData: FlowData): Promise<void> {
         const connection = await this.connectToDatabase();
 
         const post  = {
