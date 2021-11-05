@@ -8,3 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 05/11/2021
 
 - Initial commit
+
+## [1.0.1] - 05/11/2021
+
+- Removes unnecessary dependencies with potential vulnerabilities
+- Fix CI/CD bug
+- Minor fixes
