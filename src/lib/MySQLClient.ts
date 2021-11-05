@@ -23,20 +23,24 @@ private readonly config: MySQLConfig;
         });
     }
 
+    private async insertSensorData(connection: Connection, areaId: number, entry: OpenSensorWebData) {
+        const post  = {area_id: areaId, timestamp: normalizeTimestampDBFormat(entry.begin), no2_level: entry.v};
+        try {
+            await connection.query('INSERT INTO no2_emissions SET ?', post);
+        } catch (error) {
+            // @ts-ignore
+            if (error && error.code !== 'ER_DUP_ENTRY') {
+                await connection.end();
+                throw error;
+            }
+        }
+    }
+
     async updateSensorData(areaId: number, sensorData: OpenSensorWebData[]) {
         const connection = await this.connectToDatabase();
 
         for (const entry of sensorData) {
-            const post  = {area_id: areaId, timestamp: normalizeTimestampDBFormat(entry.begin), no2_level: entry.v};
-            try {
-                await connection.query('INSERT INTO no2_emissions SET ?', post);
-            } catch (error) {
-                // @ts-ignore
-                if (error && error.code !== 'ER_DUP_ENTRY') {
-                    await connection.end();
-                    throw error;
-                }
-            }
+            await this.insertSensorData(connection, areaId, entry)
         }
 
         await connection.end();
