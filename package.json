@@ -38,12 +38,11 @@
   },
   "dependencies": {
     "got": "^11.8.2",
-    "mysql": "^2.18.1"
+    "mysql2": "^2.3.2"
   },
   "devDependencies": {
     "@types/mysql": "^2.15.19",
     "eslint": "^8.1.0",
-    "mysql2": "^2.3.2",
     "ncp": "^2.0.0",
     "npm-check": "^5.9.2",
     "rimraf": "^3.0.2",
