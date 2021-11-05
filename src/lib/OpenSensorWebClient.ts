@@ -16,9 +16,8 @@ export class OpenSensorWebClient {
             '/sensors/' + sensorId +
             '/measurements/raw?interpolator=' + interpolator
     }
-private readonly apiUrl: string;
 
-    
+    private readonly apiUrl: string;
 
     async callApi(startDatetime: string, endDatetime: string): Promise<OpenSensorWebData[]> {
         const full_url = this.apiUrl +

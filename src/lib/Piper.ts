@@ -6,12 +6,6 @@ import fs from 'fs'
 import path from 'path'
 
 export class Piper {
-    private readonly areaId: number;
-    private readonly databaseClient: MySQLClient;
-    private readonly openSensorClient: OpenSensorWebClient;
-    private readonly openDataClient: TomTomTrafficClient;
-    private readonly timestampFilePath: string;
-
     constructor(areaId: number, databaseClient: MySQLClient, openSensorClient: OpenSensorWebClient, openDataClient: TomTomTrafficClient) {
         this.areaId = areaId;
         this.databaseClient = databaseClient;
@@ -19,6 +13,12 @@ export class Piper {
         this.openDataClient = openDataClient;
         this.timestampFilePath =  path.resolve(__dirname, '../../tmp/' + areaId + '.tms');
     }
+
+    private readonly areaId: number;
+    private readonly databaseClient: MySQLClient;
+    private readonly openSensorClient: OpenSensorWebClient;
+    private readonly openDataClient: TomTomTrafficClient;
+    private readonly timestampFilePath: string;
 
     private async getLastTimestamp(): Promise<Date> {
         const timestamp: string = await fs.promises.readFile(this.timestampFilePath, 'utf8');
@@ -37,12 +37,12 @@ export class Piper {
         let i = 0;
         while (i < sensorData.length) {
             const entryTimestamp = new Date(sensorData[i].begin);
-            if (entryTimestamp > lastTimestamp) break;
+            i += 1;
 
-            i += 1
+            if (entryTimestamp > lastTimestamp) break;
         }
 
-        return sensorData.slice(i);
+        return sensorData.slice(i - 1);
     }
 
     async updateTimestamp(timestamp: string): Promise<void> {

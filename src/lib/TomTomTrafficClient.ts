@@ -17,9 +17,8 @@ export class TomTomTrafficClient {
                        '/json?key=' + apiKey +
                        '&point=' + coordinates
     }
-private readonly apiUrl: string;
 
-    
+    private readonly apiUrl: string;
 
     async callApi(): Promise<TomTomTrafficData> {
         return <TomTomTrafficData><unknown> JSON.parse((await got(this.apiUrl)).body)
