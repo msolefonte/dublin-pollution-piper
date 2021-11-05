@@ -69,7 +69,7 @@ describe('Testing Piper', () => {
 
         // @ts-ignore
         step('Cache works', async () => {
-            await piper.updateTimestamp('1970-01-01T00:00Z');
+            await piper.updateTimestamp(new Date(now.getTime() - 48 * 3600 * 1000).);
         });
 
         // @ts-ignore
