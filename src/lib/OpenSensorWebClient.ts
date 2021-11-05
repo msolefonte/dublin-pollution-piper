@@ -15,9 +15,11 @@ export class OpenSensorWebClient {
             '/devices/' + deviceId +
             '/sensors/' + sensorId +
             '/measurements/raw?interpolator=' + interpolator
+        this.deviceId = deviceId
     }
 
     private readonly apiUrl: string;
+    private readonly deviceId: string;
 
     async callApi(startDatetime: string, endDatetime: string): Promise<OpenSensorWebData[]> {
         const full_url = this.apiUrl +
@@ -27,6 +29,7 @@ export class OpenSensorWebClient {
         try {
             return <OpenSensorWebData[]><unknown>JSON.parse((await got(full_url)).body)
         } catch (error: unknown) {
+            console.error('An error happened when getting sensor data (deviceId ' + this.deviceId + '): "' + error + '"');
             return []
         }
     }
