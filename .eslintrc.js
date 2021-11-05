@@ -10,6 +10,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
     ],
     rules: {
+        '@typescript-eslint/ban-ts-comment': 'off',
         'quotes': [2, 'single', { 'avoidEscape': true }],
         'sort-class-members/sort-class-members': [2, {
             'order': [

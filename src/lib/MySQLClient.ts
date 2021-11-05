@@ -1,13 +1,14 @@
+import {FlowData, MySQLConfig, OpenSensorWebData} from '../types';
 import mysql, {Connection} from 'mysql2/promise';
-import {FlowData, MySQLConfig, OpenSensorWebData} from "../types";
-import {normalizeTimestampDBFormat} from "./utils/normalizer";
+import {normalizeTimestampDBFormat} from './utils/normalizer';
 
 export class MySQLClient {
-    private readonly config: MySQLConfig;
-
     constructor(config: MySQLConfig) {
         this.config = config
     }
+private readonly config: MySQLConfig;
+
+    
 
     private async connectToDatabase(): Promise<Connection> {
         return mysql.createConnection({
@@ -29,8 +30,12 @@ export class MySQLClient {
             const post  = {area_id: areaId, timestamp: normalizeTimestampDBFormat(entry.begin), no2_level: entry.v};
             try {
                 await connection.query('INSERT INTO no2_emissions SET ?', post);
-            } catch (error: any) {
-                if (error && error.code !== 'ER_DUP_ENTRY') throw error;
+            } catch (error) {
+                // @ts-ignore
+                if (error && error.code !== 'ER_DUP_ENTRY') {
+                    await connection.end();
+                    throw error;
+                }
             }
         }
 

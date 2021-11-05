@@ -1,13 +1,11 @@
-import got from 'got';
-import {normalizeTimestampDBFormat} from "./utils/normalizer";
 import {
     FlowData,
     TomTomTrafficData
 } from '../types';
+import got from 'got';
+import {normalizeTimestampDBFormat} from './utils/normalizer';
 
 export class TomTomTrafficClient {
-    private readonly apiUrl: string;
-
     constructor(apiKey: string, coordinates: string, zoomLevel: number, serviceVersion?: number, flowSegmentData?: string) {
         if (serviceVersion === undefined) serviceVersion = 4;
         if (flowSegmentData === undefined) flowSegmentData = 'relative0';
@@ -19,6 +17,9 @@ export class TomTomTrafficClient {
                        '/json?key=' + apiKey +
                        '&point=' + coordinates
     }
+private readonly apiUrl: string;
+
+    
 
     async callApi(): Promise<TomTomTrafficData> {
         return <TomTomTrafficData><unknown> JSON.parse((await got(this.apiUrl)).body)

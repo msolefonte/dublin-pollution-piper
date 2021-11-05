@@ -2,7 +2,7 @@
   "areas": [
     {
       "id": 1,
-      "description": "Dublin 12. South Canal. Davitt Road",
+      "description": "Dublin 12 / South Canal / Davitt Road",
       "sensor": {
         "sensorId": "SPO.IE.IE001APSample2_8-NO2-PT1H",
         "deviceId": "STA.IE.IE001AP"
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "description": "Dublin 8. The Liberties. Grand Canal Place",
+      "description": "Dublin 8 / The Liberties / Grand Canal Place",
       "sensor": {
         "sensorId": "SPO.IE.IE005APSample2_8-NO2-PT1H",
         "deviceId": "STA.IE.IE005AP"
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "description": "Dublin 8. Dublin Heuston. Saint John's Road West",
+      "description": "Dublin 8 / Dublin Heuston / Saint John's Road West",
       "sensor": {
         "sensorId": "SPO.IE.IE0098ASample1_8-NO2-PT1H",
         "deviceId": "STA.IE.IE0098A"
@@ -29,7 +29,7 @@
     },
     {
       "id": 4,
-      "description": "Dublin 7. Technological University Dublin. East Quad",
+      "description": "Dublin 7 / Technological University Dublin / East Quad",
       "sensor": {
         "sensorId": "SPO.IE.IE0028ASample1_8-NO2-PT1H",
         "deviceId": "STA.IE.IE0028A"
@@ -38,7 +38,7 @@
     },
     {
       "id": 5,
-      "description": "Dublin 1. North City. Abbey Street Upper",
+      "description": "Dublin 1 / North City / Abbey Street Upper",
       "sensor": {
         "sensorId": "SPO.IE.IE0105ASample1_8-NO2-PT1H",
         "deviceId": "STA.IE.IE0105A"
@@ -47,7 +47,7 @@
     },
     {
       "id": 6,
-      "description": "Dublin 4. Port. Pigeon House Road",
+      "description": "Dublin 4 / Port / Pigeon House Road",
       "sensor": {
         "sensorId": "SPO.IE.IE004APSample1_8-NO2-PT1H",
         "deviceId": "STA.IE.IE004AP"
